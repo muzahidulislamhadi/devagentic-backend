@@ -1,11 +1,11 @@
 'use client'
-import { useTranslation } from 'react-i18next'
-import { useCallback, useState } from 'react'
-import Link from 'next/link'
-import { useSendDeleteAccountEmail } from '../state'
-import { useAppContext } from '@/context/app-context'
-import Input from '@/app/components/base/input'
 import Button from '@/app/components/base/button'
+import Input from '@/app/components/base/input'
+import { useAppContext } from '@/context/app-context'
+import Link from 'next/link'
+import { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSendDeleteAccountEmail } from '../state'
 
 type DeleteAccountProps = {
   onCancel: () => void
@@ -34,7 +34,7 @@ export default function CheckEmail(props: DeleteAccountProps) {
     </div>
     <div className='body-md-regular pb-2 pt-1 text-text-secondary'>
       {t('common.account.deletePrivacyLinkTip')}
-      <Link href='https://dify.ai/privacy' className='text-text-accent'>{t('common.account.deletePrivacyLink')}</Link>
+      <Link href='https://devagentic.io/privacy' className='text-text-accent'>{t('common.account.deletePrivacyLink')}</Link>
     </div>
     <label className='system-sm-semibold mb-1 mt-3 flex h-6 items-center text-text-secondary'>{t('common.account.deleteLabel')}</label>
     <Input placeholder={t('common.account.deletePlaceholder') as string} onChange={(e) => {

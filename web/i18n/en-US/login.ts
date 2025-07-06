@@ -1,6 +1,13 @@
 const translation = {
   pageTitle: 'Hey, let\'s get started!',
-  welcome: '👋 Welcome to Dify, please log in to continue.',
+  welcome: '👋 Welcome to DevAgentic, please log in to continue.',
+  signUpTitle: 'Create your account',
+  signUpWelcome: '👋 Welcome to DevAgentic, please sign up to get started.',
+  signUpBtn: 'Create account',
+  newUserText: 'New to DevAgentic?',
+  signUp: 'Sign up',
+  alreadyHaveAccount: 'Already have an account?',
+  signInHere: 'Sign in',
   email: 'Email address',
   emailPlaceholder: 'Your email',
   password: 'Password',
@@ -62,6 +69,8 @@ const translation = {
     passwordLengthInValid: 'Password must be at least 8 characters',
     passwordInvalid: 'Password must contain letters and numbers, and the length must be greater than 8',
     registrationNotAllowed: 'Account not found. Please contact the system admin to register.',
+    emailAlreadyExists: 'An account with this email already exists. Please sign in instead.',
+    signupFailed: 'Failed to create account. Please try again.',
   },
   license: {
     tip: 'Before starting Dify Community Edition, read the GitHub',

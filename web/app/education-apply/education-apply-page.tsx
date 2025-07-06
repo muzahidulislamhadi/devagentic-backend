@@ -1,30 +1,30 @@
 'use client'
 
-import {
-  useState,
-} from 'react'
-import { useTranslation } from 'react-i18next'
-import { RiExternalLinkLine } from '@remixicon/react'
-import {
-  useRouter,
-  useSearchParams,
-} from 'next/navigation'
-import UserInfo from './user-info'
-import SearchInput from './search-input'
-import RoleSelector from './role-selector'
-import Confirm from './verify-state-modal'
 import Button from '@/app/components/base/button'
 import Checkbox from '@/app/components/base/checkbox'
+import { useToastContext } from '@/app/components/base/toast'
+import { EDUCATION_VERIFYING_LOCALSTORAGE_ITEM } from '@/app/education-apply/constants'
+import { useDocLink } from '@/context/i18n'
+import { useProviderContext } from '@/context/provider-context'
 import {
   useEducationAdd,
   useInvalidateEducationStatus,
 } from '@/service/use-education'
-import { useProviderContext } from '@/context/provider-context'
-import { useToastContext } from '@/app/components/base/toast'
-import { EDUCATION_VERIFYING_LOCALSTORAGE_ITEM } from '@/app/education-apply/constants'
+import { RiExternalLinkLine } from '@remixicon/react'
 import { noop } from 'lodash-es'
+import {
+  useRouter,
+  useSearchParams,
+} from 'next/navigation'
+import {
+  useState,
+} from 'react'
+import { useTranslation } from 'react-i18next'
 import DifyLogo from '../components/base/logo/dify-logo'
-import { useDocLink } from '@/context/i18n'
+import RoleSelector from './role-selector'
+import SearchInput from './search-input'
+import UserInfo from './user-info'
+import Confirm from './verify-state-modal'
 const EducationApplyAge = () => {
   const { t } = useTranslation()
   const [schoolName, setSchoolName] = useState('')
@@ -123,9 +123,9 @@ const EducationApplyAge = () => {
             </div>
             <div className='system-md-regular mb-1 text-text-tertiary'>
               {t('education.form.terms.desc.front')}&nbsp;
-              <a href='https://dify.ai/terms' target='_blank' className='text-text-secondary hover:underline'>{t('education.form.terms.desc.termsOfService')}</a>&nbsp;
+              <a href='https://devagentic.io/terms' target='_blank' className='text-text-secondary hover:underline'>{t('education.form.terms.desc.termsOfService')}</a>&nbsp;
               {t('education.form.terms.desc.and')}&nbsp;
-              <a href='https://dify.ai/privacy' target='_blank' className='text-text-secondary hover:underline'>{t('education.form.terms.desc.privacyPolicy')}</a>
+              <a href='https://devagentic.io/privacy' target='_blank' className='text-text-secondary hover:underline'>{t('education.form.terms.desc.privacyPolicy')}</a>
               {t('education.form.terms.desc.end')}
             </div>
             <div className='system-md-regular py-2 text-text-primary'>

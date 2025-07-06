@@ -1,32 +1,32 @@
 'use client'
 
-import { createContext, useContext, useContextSelector } from 'use-context-selector'
-import useSWR from 'swr'
-import { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
-import { useTranslation } from 'react-i18next'
+import Toast from '@/app/components/base/toast'
+import { defaultPlan } from '@/app/components/billing/config'
+import type { BasicPlan } from '@/app/components/billing/type'
+import { Plan, type UsagePlanInfo } from '@/app/components/billing/type'
+import { parseCurrentPlan } from '@/app/components/billing/utils'
+import type { Model, ModelProvider } from '@/app/components/header/account-setting/model-provider-page/declarations'
+import {
+  CurrentSystemQuotaTypeEnum,
+  ModelStatusEnum,
+  ModelTypeEnum,
+} from '@/app/components/header/account-setting/model-provider-page/declarations'
+import { fetchCurrentPlanInfo } from '@/service/billing'
 import {
   fetchModelList,
   fetchModelProviders,
   fetchSupportRetrievalMethods,
 } from '@/service/common'
 import {
-  CurrentSystemQuotaTypeEnum,
-  ModelStatusEnum,
-  ModelTypeEnum,
-} from '@/app/components/header/account-setting/model-provider-page/declarations'
-import type { Model, ModelProvider } from '@/app/components/header/account-setting/model-provider-page/declarations'
-import type { RETRIEVE_METHOD } from '@/types/app'
-import type { BasicPlan } from '@/app/components/billing/type'
-import { Plan, type UsagePlanInfo } from '@/app/components/billing/type'
-import { fetchCurrentPlanInfo } from '@/service/billing'
-import { parseCurrentPlan } from '@/app/components/billing/utils'
-import { defaultPlan } from '@/app/components/billing/config'
-import Toast from '@/app/components/base/toast'
-import {
   useEducationStatus,
 } from '@/service/use-education'
+import type { RETRIEVE_METHOD } from '@/types/app'
+import dayjs from 'dayjs'
 import { noop } from 'lodash-es'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import useSWR from 'swr'
+import { createContext, useContext, useContextSelector } from 'use-context-selector'
 
 type ProviderContextState = {
   modelProviders: ModelProvider[]
@@ -81,7 +81,7 @@ const ProviderContext = createContext<ProviderContextState>({
     },
   },
   isFetchedPlan: false,
-  enableBilling: false,
+  enableBilling: true,
   onPlanInfoChanged: noop,
   enableReplaceWebAppLogo: false,
   modelLoadBalancingEnabled: false,
@@ -143,8 +143,8 @@ export const ProviderContextProvider = ({
         return
       }
 
-      // set default value to avoid undefined error
-      setEnableBilling(data.billing?.enabled ?? false)
+      // set default value to avoid undefined error - always enable billing
+      setEnableBilling(true)
       setEnableEducationPlan(data.education?.enabled ?? false)
       setIsEducationWorkspace(data.education?.activated ?? false)
       setEnableReplaceWebAppLogo(data.can_replace_logo ?? false)
@@ -165,8 +165,8 @@ export const ProviderContextProvider = ({
     }
     catch (error) {
       console.error('Failed to fetch plan info:', error)
-      // set default value to avoid undefined error
-      setEnableBilling(false)
+      // set default value to avoid undefined error - always enable billing
+      setEnableBilling(true)
       setEnableEducationPlan(false)
       setIsEducationWorkspace(false)
       setEnableReplaceWebAppLogo(false)

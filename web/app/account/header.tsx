@@ -1,12 +1,12 @@
 'use client'
-import { useTranslation } from 'react-i18next'
+import DifyLogo from '@/app/components/base/logo/dify-logo'
+import { useGlobalPublicStore } from '@/context/global-public-context'
 import { RiArrowRightUpLine, RiRobot2Line } from '@remixicon/react'
 import { useRouter } from 'next/navigation'
+import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import Button from '../components/base/button'
 import Avatar from './avatar'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
-import { useCallback } from 'react'
-import { useGlobalPublicStore } from '@/context/global-public-context'
 
 const Header = () => {
   const { t } = useTranslation()
@@ -25,7 +25,7 @@ const Header = () => {
             ? <img
               src={systemFeatures.branding.login_page_logo}
               className='block h-[22px] w-auto object-contain'
-              alt='Dify logo'
+              alt='DevAgentic logo'
             />
             : <DifyLogo />}
         </div>

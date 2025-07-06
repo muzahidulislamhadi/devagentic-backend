@@ -1,21 +1,20 @@
 'use client'
-import { useTranslation } from 'react-i18next'
-import { useDocLink } from '@/context/i18n'
-import { useCallback, useState } from 'react'
-import Link from 'next/link'
-import { useContext } from 'use-context-selector'
-import { useRouter, useSearchParams } from 'next/navigation'
-import useSWR from 'swr'
-import { RiAccountCircleLine } from '@remixicon/react'
-import Input from '@/app/components/base/input'
-import { SimpleSelect } from '@/app/components/base/select'
 import Button from '@/app/components/base/button'
-import { timezones } from '@/utils/timezone'
-import { LanguagesSupported, languages } from '@/i18n/language'
-import I18n from '@/context/i18n'
-import { activateMember, invitationCheck } from '@/service/common'
+import Input from '@/app/components/base/input'
 import Loading from '@/app/components/base/loading'
+import { SimpleSelect } from '@/app/components/base/select'
 import Toast from '@/app/components/base/toast'
+import I18n, { useDocLink } from '@/context/i18n'
+import { LanguagesSupported, languages } from '@/i18n/language'
+import { activateMember, invitationCheck } from '@/service/common'
+import { timezones } from '@/utils/timezone'
+import { RiAccountCircleLine } from '@remixicon/react'
+import Link from 'next/link'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import useSWR from 'swr'
+import { useContext } from 'use-context-selector'
 
 export default function InviteSettingsPage() {
   const { t } = useTranslation()
@@ -75,7 +74,7 @@ export default function InviteSettingsPage() {
       </div>
       <div className="mx-auto mt-6 w-full">
         <Button variant='primary' className='w-full !text-sm'>
-          <a href="https://dify.ai">{t('login.explore')}</a>
+          <a href="https://devagentic.io">{t('login.explore')}</a>
         </Button>
       </div>
     </div>

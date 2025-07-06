@@ -1,10 +1,10 @@
-import {
-  createContext,
-  useContext,
-} from 'use-context-selector'
 import type { Locale } from '@/i18n'
 import { getDocLanguage, getLanguage, getPricingPageLanguage } from '@/i18n/language'
 import { noop } from 'lodash-es'
+import {
+    createContext,
+    useContext,
+} from 'use-context-selector'
 
 type II18NContext = {
   locale: Locale
@@ -30,7 +30,7 @@ export const useGetPricingPageLanguage = () => {
   return getPricingPageLanguage(locale)
 }
 
-const defaultDocBaseUrl = 'https://docs.dify.ai'
+const defaultDocBaseUrl = 'https://docs.devagentic.io'
 export const useDocLink = (baseUrl?: string): ((path?: string, pathMap?: { [index: string]: string }) => string) => {
   let baseDocUrl = baseUrl || defaultDocBaseUrl
   baseDocUrl = (baseDocUrl.endsWith('/')) ? baseDocUrl.slice(0, -1) : baseDocUrl

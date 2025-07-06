@@ -1,13 +1,13 @@
 'use client'
+import Button from '@/app/components/base/button'
+import cn from '@/utils/classnames'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import useSWR from 'swr'
-import { useRouter, useSearchParams } from 'next/navigation'
-import cn from '@/utils/classnames'
-import Button from '@/app/components/base/button'
 
-import { invitationCheck } from '@/service/common'
 import Loading from '@/app/components/base/loading'
 import useDocumentTitle from '@/hooks/use-document-title'
+import { invitationCheck } from '@/service/common'
 
 const ActivateForm = () => {
   useDocumentTitle('')
@@ -57,7 +57,7 @@ const ActivateForm = () => {
           </div>
           <div className="mx-auto mt-6 w-full">
             <Button variant='primary' className='w-full !text-sm'>
-              <a href="https://dify.ai">{t('login.explore')}</a>
+              <a href="https://devagentic.io">{t('login.explore')}</a>
             </Button>
           </div>
         </div>

@@ -1,19 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import Toast from '@/app/components/base/toast'
+import { useGlobalPublicStore } from '@/context/global-public-context'
+import { invitationCheck } from '@/service/common'
+import { LicenseStatus } from '@/types/feature'
+import cn from '@/utils/classnames'
+import { RiContractLine, RiDoorLockLine, RiErrorWarningFill } from '@remixicon/react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { RiContractLine, RiDoorLockLine, RiErrorWarningFill } from '@remixicon/react'
+import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Loading from '../components/base/loading'
 import MailAndCodeAuth from './components/mail-and-code-auth'
 import MailAndPasswordAuth from './components/mail-and-password-auth'
 import SocialAuth from './components/social-auth'
 import SSOAuth from './components/sso-auth'
-import cn from '@/utils/classnames'
-import { invitationCheck } from '@/service/common'
-import { LicenseStatus } from '@/types/feature'
-import Toast from '@/app/components/base/toast'
-import { IS_CE_EDITION } from '@/config'
-import { useGlobalPublicStore } from '@/context/global-public-context'
 
 const NormalForm = () => {
   const { t } = useTranslation()
@@ -188,23 +187,23 @@ const NormalForm = () => {
               <Link
                 className='system-xs-medium text-text-secondary hover:underline'
                 target='_blank' rel='noopener noreferrer'
-                href='https://dify.ai/terms'
+                href='https://devagentic.io/terms'
               >{t('login.tos')}</Link>
               &nbsp;&&nbsp;
               <Link
                 className='system-xs-medium text-text-secondary hover:underline'
                 target='_blank' rel='noopener noreferrer'
-                href='https://dify.ai/privacy'
+                href='https://devagentic.io/privacy'
               >{t('login.pp')}</Link>
             </div>
-            {IS_CE_EDITION && <div className="w-hull system-xs-regular mt-2 block text-text-tertiary">
-              {t('login.goToInit')}
+            <div className="w-hull system-xs-regular mt-2 block text-text-tertiary">
+              {t('login.newUserText')}
               &nbsp;
-              <Link
-                className='system-xs-medium text-text-secondary hover:underline'
-                href='/install'
-              >{t('login.setAdminAccount')}</Link>
-            </div>}
+              <span
+                className='system-xs-medium text-text-accent cursor-pointer hover:underline'
+                onClick={() => router.push('/signup')}
+              >{t('login.signUp')}</span>
+            </div>
           </>}
 
         </div>

@@ -1,16 +1,16 @@
 'use client'
+import Button from '@/app/components/base/button'
+import Loading from '@/app/components/base/loading'
+import Toast from '@/app/components/base/toast'
+import { changePasswordWithToken, verifyForgotPasswordToken } from '@/service/common'
+import { basePath } from '@/utils/var'
+import { CheckCircleIcon } from '@heroicons/react/24/solid'
+import cn from 'classnames'
+import { useSearchParams } from 'next/navigation'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import useSWR from 'swr'
-import { useSearchParams } from 'next/navigation'
-import { basePath } from '@/utils/var'
-import cn from 'classnames'
-import { CheckCircleIcon } from '@heroicons/react/24/solid'
 import Input from '../components/base/input'
-import Button from '@/app/components/base/button'
-import { changePasswordWithToken, verifyForgotPasswordToken } from '@/service/common'
-import Toast from '@/app/components/base/toast'
-import Loading from '@/app/components/base/loading'
 
 const validPassword = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/
 
@@ -92,7 +92,7 @@ const ChangePasswordForm = () => {
           </div>
           <div className="mx-auto mt-6 w-full">
             <Button variant='primary' className='w-full !text-sm'>
-              <a href="https://dify.ai">{t('login.explore')}</a>
+              <a href="https://devagentic.io">{t('login.explore')}</a>
             </Button>
           </div>
         </div>

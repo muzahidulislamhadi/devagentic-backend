@@ -1,21 +1,21 @@
 'use client'
-import type { FC } from 'react'
-import classNames from '@/utils/classnames'
 import useTheme from '@/hooks/use-theme'
+import classNames from '@/utils/classnames'
 import { basePath } from '@/utils/var'
+import type { FC } from 'react'
 export type LogoStyle = 'default' | 'monochromeWhite'
 
 export const logoPathMap: Record<LogoStyle, string> = {
-  default: '/logo/logo.svg',
-  monochromeWhite: '/logo/logo-monochrome-white.svg',
+  default: '/logo/logo-site.png',
+  monochromeWhite: '/logo/logo-site.png',
 }
 
 export type LogoSize = 'large' | 'medium' | 'small'
 
 export const logoSizeMap: Record<LogoSize, string> = {
-  large: 'w-16 h-7',
-  medium: 'w-12 h-[22px]',
-  small: 'w-9 h-4',
+  large: 'w-24 h-10',
+  medium: 'w-18 h-8',
+  small: 'w-12 h-5',
 }
 
 type DifyLogoProps = {
@@ -36,7 +36,7 @@ const DifyLogo: FC<DifyLogoProps> = ({
     <img
       src={`${basePath}${logoPathMap[themedStyle]}`}
       className={classNames('block object-contain', logoSizeMap[size], className)}
-      alt='Dify logo'
+      alt='DevAgentic logo'
     />
   )
 }

@@ -188,7 +188,7 @@ class MarketplaceConfig(BaseSettings):
 
     MARKETPLACE_API_URL: HttpUrl = Field(
         description="Marketplace API URL",
-        default=HttpUrl("https://marketplace.dify.ai"),
+        default=HttpUrl("https://marketplace.devagentic.io"),
     )
 
 
@@ -468,7 +468,7 @@ class BillingConfig(BaseSettings):
 
     BILLING_ENABLED: bool = Field(
         description="Enable or disable billing functionality",
-        default=False,
+        default=True,
     )
 
     # Stripe API Keys
@@ -563,7 +563,7 @@ class UpdateConfig(BaseSettings):
 
     CHECK_UPDATE_URL: str = Field(
         description="URL to check for application updates",
-        default="https://updates.dify.ai",
+        default="https://updates.devagentic.io",
     )
 
 

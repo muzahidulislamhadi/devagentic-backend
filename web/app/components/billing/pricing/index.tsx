@@ -1,21 +1,21 @@
 'use client'
+import GridMask from '@/app/components/base/grid-mask'
+import { useAppContext } from '@/context/app-context'
+import { useGetPricingPageLanguage } from '@/context/i18n'
+import { useProviderContext } from '@/context/provider-context'
+import classNames from '@/utils/classnames'
+import { RiArrowRightUpLine, RiCloseLine, RiCloudFill, RiTerminalBoxFill } from '@remixicon/react'
+import { useKeyPress } from 'ahooks'
+import Link from 'next/link'
 import type { FC } from 'react'
 import React from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
-import { RiArrowRightUpLine, RiCloseLine, RiCloudFill, RiTerminalBoxFill } from '@remixicon/react'
-import Link from 'next/link'
-import { useKeyPress } from 'ahooks'
-import { Plan, SelfHostedPlan } from '../type'
 import TabSlider from '../../base/tab-slider'
-import SelectPlanRange, { PlanRange } from './select-plan-range'
+import { Plan, SelfHostedPlan } from '../type'
 import PlanItem from './plan-item'
+import SelectPlanRange, { PlanRange } from './select-plan-range'
 import SelfHostedPlanItem from './self-hosted-plan-item'
-import { useProviderContext } from '@/context/provider-context'
-import GridMask from '@/app/components/base/grid-mask'
-import { useAppContext } from '@/context/app-context'
-import classNames from '@/utils/classnames'
-import { useGetPricingPageLanguage } from '@/context/i18n'
 
 type Props = {
   onCancel: () => void
@@ -36,8 +36,8 @@ const Pricing: FC<Props> = ({
 
   const pricingPageLanguage = useGetPricingPageLanguage()
   const pricingPageURL = pricingPageLanguage
-    ? `https://dify.ai/${pricingPageLanguage}/pricing#plans-and-features`
-    : 'https://dify.ai/pricing#plans-and-features'
+    ? `https://devagentic.io/${pricingPageLanguage}/pricing#plans-and-features`
+    : 'https://devagentic.io/pricing#plans-and-features'
 
   return createPortal(
     <div

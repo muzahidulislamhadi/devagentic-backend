@@ -1,7 +1,7 @@
 'use client'
-import type { FC } from 'react'
-import { basePath } from '@/utils/var'
 import classNames from '@/utils/classnames'
+import { basePath } from '@/utils/var'
+import type { FC } from 'react'
 
 type LogoSiteProps = {
   className?: string
@@ -12,9 +12,9 @@ const LogoSite: FC<LogoSiteProps> = ({
 }) => {
   return (
     <img
-      src={`${basePath}/logo/logo.png`}
-      className={classNames('block w-[22.651px] h-[24.5px]', className)}
-      alt='logo'
+      src={`${basePath}/logo/logo-site.png`}
+      className={classNames('block w-[36px] h-[39px]', className)}
+      alt='DevAgentic logo'
     />
   )
 }
